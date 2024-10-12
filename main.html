@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CIOMatcher</title>
+</head>
+<body>
+    <h1>CIO Matcher</h1>
+    <!-- This sends the request to the js file to then send a request to open AI -->
+    <form action="../CIOMATCHER/request.py" method="post"></form>
+        <label for="userInput">What type of club are you interested in?:</label>
+        <input type="text" id="userInput" name="userInput" placeholder="hi mason">
+        <button type="submit">Submit</button> 
+    </form>
+    
+    <!-- use this for the js request -->
+    <div id="responseContainer"></div>
+    
+</body>
+</html>
