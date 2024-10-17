@@ -37,7 +37,7 @@ r<!DOCTYPE html>
             });
 
             const data = await response.json(); //stores OpenAI response
-            document.getElementById('responseContainer').textContent = data.choices[0].text.trim(); //displays response
+            document.getElementById('responseContainer').textContent = data.choices[0].text.trim(); //displays response and place it in responseContainer
         });
     </script>
 </body>
