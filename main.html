@@ -8,7 +8,7 @@
 <body>
     <h1>CIO Matcher</h1>
     <!-- This sends the request to the js file to then send a request to open AI -->
-    <form action="../CIOMATCHER/request.py" method="post"></form>
+    <form id="userForm">
         <label for="userInput">What type of club are you interested in?:</label>
         <input type="text" id="userInput" name="userInput" placeholder="Enter club type">
         <button type="submit">Submit</button> 
@@ -16,6 +16,29 @@
     
     <!-- use this for the js request -->
     <div id="responseContainer"></div>
-    
+
+    <script>
+        document.getElementById('userForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const userInput = document.getElementById('userInput').value;
+
+            const response = await fetch('https://api.openai.com/v1/completions', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer key', //replace key with our OpenAI key
+                },
+                body: JSON.stringify({
+                    model: 'text-davinci-003',
+                    prompt: `Suggest a club for someone interested in ${userInput}.`,
+                    max_tokens: 100
+                })
+            });
+
+            const data = await response.json();
+            document.getElementById('responseContainer').textContent = data.choices[0].text.trim();
+        });
+    </script>
 </body>
 </html>
