@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+r<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -18,26 +18,26 @@
     <div id="responseContainer"></div>
 
     <script>
-        document.getElementById('userForm').addEventListener('submit', async function(event) {
-            event.preventDefault();
+        document.getElementById('userForm').addEventListener('submit', async function(event) { //function called when submit button is pressed
+            event.preventDefault(); //prevents default form submission behavior (reloading page)
 
-            const userInput = document.getElementById('userInput').value;
+            const userInput = document.getElementById('userInput').value; //stores user input
 
-            const response = await fetch('https://api.openai.com/v1/completions', {
+            const response = await fetch('https://api.openai.com/v1/completions', { //sends HTTP POST request to OpenAI endpoint
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': 'Bearer key', //replace key with our OpenAI key
+                    'Authorization': 'Bearer key', //replace Bearer key with our OpenAI key
                 },
                 body: JSON.stringify({
-                    model: 'text-davinci-003',
-                    prompt: `Suggest a club for someone interested in ${userInput}.`,
-                    max_tokens: 100
+                    model: 'text-davinci-003', //generates text response
+                    prompt: `Suggest a club for someone interested in ${userInput}.`, //asks OpenAI to suggest a club based on user input
+                    max_tokens: 100 //limit of 100 tokens, we can adjust as needed
                 })
             });
 
-            const data = await response.json();
-            document.getElementById('responseContainer').textContent = data.choices[0].text.trim();
+            const data = await response.json(); //stores OpenAI response
+            document.getElementById('responseContainer').textContent = data.choices[0].text.trim(); //displays response
         });
     </script>
 </body>
