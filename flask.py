@@ -12,7 +12,7 @@ def get_club_suggestion():
     'https://api.openai.com/v1/completions',
     headers={
       'Content-Type': 'application/json',
-      'Authorization': f'Bearer key' #replace key with open ai key
+      'Authorization': f'Bearer {OPENAI_API_KEY}' 
     },
     json={
       'model': 'text-davinci-003',
