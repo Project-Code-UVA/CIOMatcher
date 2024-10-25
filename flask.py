@@ -15,8 +15,8 @@ def get_club_suggestion():
       'Authorization': f'Bearer key' #replace key with open ai key
     },
     json={
-      'model': 'text-davinci-003'
-      'prompt': f"Suggest a club for anyone interested in {user_input}."
+      'model': 'text-davinci-003',
+      'prompt': f"Suggest a club for anyone interested in {user_input}.",
       'max_tokens': 100
     }
   )
