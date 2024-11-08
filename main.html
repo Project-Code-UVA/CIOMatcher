@@ -23,7 +23,7 @@
 
             const userInput = document.getElementById('userInput').value; //stores user input
 
-            const response = await fetch('/getClubSuggestion', { //sends HTTP POST request to OpenAI endpoint
+            const response = await fetch('/api/getClubSuggestion', { //sends HTTP POST request to OpenAI endpoint
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
