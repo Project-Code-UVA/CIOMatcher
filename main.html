@@ -23,21 +23,16 @@
 
             const userInput = document.getElementById('userInput').value; //stores user input
 
-            const response = await fetch('https://api.openai.com/v1/completions', { //sends HTTP POST request to OpenAI endpoint
+            const response = await fetch('/getClubSuggestion', { //sends HTTP POST request to OpenAI endpoint
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': 'Bearer key', //replace key with our OpenAI key
                 },
-                body: JSON.stringify({
-                    model: 'text-davinci-003', //generates text response
-                    prompt: `Suggest a club for someone interested in ${userInput}.`, //asks OpenAI to suggest a club based on user input
-                    max_tokens: 100 //limit of 100 tokens, we can adjust as needed
-                })
+                body: JSON.stringify({userInput})
             });
 
             const data = await response.json(); //stores OpenAI response
-            document.getElementById('responseContainer').textContent = data.choices[0].text.trim(); //displays response and place it in responseContainer
+            document.getElementById('responseContainer').textContent = data.suggestion; //displays response and place it in responseContainer
         });
     </script>
 </body>
