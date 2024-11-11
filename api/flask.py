@@ -12,21 +12,17 @@ def get_club_suggestion():
   response = requests.post(
     'https://api.openai.com/v1/completions',
     headers={
-      'Content-Type': 'application/json',
-      'Authorization': f'Bearer {OPENAI_API_KEY}' 
+        'Content-Type': 'application/json',
+        'Authorization': f'Bearer {OPENAI_API_KEY}' 
     },
     json={
-      'model': 'text-davinci-003',
-      'prompt': f"Suggest a club for anyone interested in {user_input}.",
-      'max_tokens': 100
+        'model': 'text-davinci-003',
+        'prompt': f"Suggest a club for anyone interested in {user_input}.",
+        'max_tokens': 100
     }
-  )
-  data = response.json()
-  if 'choices' in data:
-    suggestion = data['choices'][0]['text'].strip()
-  else:
-    suggestion = "No suggestion available"
-  return jsonify({'suggestion': suggestion})
+)
+data = response.json()
+return jsonify(data)
 
 if __name__ == '__main__':
   app.run(debug = True)
