@@ -1,7 +1,10 @@
 from flask import Flask, request, jsonify
 import requests
+import os
 
 app = Flask(__name__)
+
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 @app.route('/getClubSuggestion', methods=['POST'])
 def get_club_suggestion():
