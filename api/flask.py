@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
-@app.route('/getClubSuggestion', methods=['POST'])
+@app.route('/api/getClubSuggestion', methods=['POST'])
 def get_club_suggestion():
   user_input = request.json.get('userInput')
   response = requests.post(
