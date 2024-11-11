@@ -3,8 +3,6 @@ import requests
 
 app = Flask(__name__)
 
-OPENAI_API_KEY = API_KEY #replace key with openai key
-
 @app.route('/getClubSuggestion', methods=['POST'])
 def get_club_suggestion():
   user_input = request.json.get('userInput')
