@@ -12,6 +12,6 @@
   ],
   "routes": [
     { "src": "/api/(.*)", "dest": "/api/flask.py" },
-    { "src": "/", "dest": "/static/main.html" }
+    { "src": "/.*", "dest": "/static/main.html" }
   ]
 }
