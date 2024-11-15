@@ -39,15 +39,16 @@ def get_club_suggestion():
         print("OpenAI API Response:")
         print(response.status_code, response.text)
 
+        app.logger.info(f"OpenAI API Response: {response.status_code} {response.text}")
+
         logging.debug(f"OpenAI API Response Status: {response.status_code}")
         if response.status_code != 200:
             logging.error(f"OpenAI API request failed: {response.text}")
             return jsonify({'error': 'OpenAI API request failed', 'details': response.text}), response.status_code
 
         data = response.json()
-        logging.debug(f"OpenAI API Response Data: {data}")
-
-        return jsonify(data)
+        assistant_message = data.get("choices", [])[0].get("message", {}).get("content", "No suggestion found.")
+        return jsonify({'suggestion': assistant_message})
 
     except Exception as e:
         logging.error(f"Error: {str(e)}")
