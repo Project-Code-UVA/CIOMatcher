@@ -17,9 +17,10 @@ def get_club_suggestion():
         if not user_input:
             logging.error('No user input provided')
             return jsonify({'error': 'No userInput provided'}), 400
-
+        
         logging.debug(f"Received user input: {user_input}")
 
+        # Sending the request to OpenAI API
         response = requests.post(
             'https://api.openai.com/v1/completions',
             headers={
