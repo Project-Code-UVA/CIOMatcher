@@ -36,6 +36,9 @@ def get_club_suggestion():
             }
         )
 
+        print("OpenAI API Response:")
+        print(response.status_code, response.text)
+
         logging.debug(f"OpenAI API Response Status: {response.status_code}")
         if response.status_code != 200:
             logging.error(f"OpenAI API request failed: {response.text}")
