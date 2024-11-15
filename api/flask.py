@@ -20,9 +20,9 @@ def get_club_suggestion():
         'prompt': f"Suggest a club for anyone interested in {user_input}.",
         'max_tokens': 100
     }
-)
-data = response.json()
-return jsonify(data)
+  )
+  data = response.json()
+  return jsonify(data)
 
 if __name__ == '__main__':
   app.run(debug = True)
