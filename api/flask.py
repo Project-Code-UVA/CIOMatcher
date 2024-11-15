@@ -22,7 +22,7 @@ def get_club_suggestion():
 
         # Sending the request to OpenAI API
         response = requests.post(
-            'https://api.openai.com/v1/completions',
+            'https://api.openai.com/v1/chat/completions',
             headers={
                 'Content-Type': 'application/json',
                 'Authorization': f'Bearer {OPENAI_API_KEY}'
