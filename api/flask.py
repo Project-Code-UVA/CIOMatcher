@@ -28,7 +28,7 @@ def get_club_suggestion():
                 'Authorization': f'Bearer {OPENAI_API_KEY}'
             },
             json={
-                'model': 'text-davinci-003',
+                'model': 'gpt-3.5-turbo',
                 'prompt': f"Suggest a club for anyone interested in {user_input}.",
                 'max_tokens': 100
             }
