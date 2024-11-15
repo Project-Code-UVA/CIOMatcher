@@ -22,14 +22,16 @@ def get_club_suggestion():
 
         # Sending the request to OpenAI API
         response = requests.post(
-            'https://api.openai.com/v1/chat/completions',
+            'https://api.openai.com/v1/chat/completions',  # Correct endpoint for chat models
             headers={
                 'Content-Type': 'application/json',
                 'Authorization': f'Bearer {OPENAI_API_KEY}'
             },
             json={
-                'model': 'gpt-3.5-turbo',
-                'prompt': f"Suggest a club for anyone interested in {user_input}.",
+                'model': 'gpt-3.5-turbo',  # Specify the chat model
+                'messages': [
+                    {'role': 'user', 'content': f"Suggest a club for anyone interested in {user_input}."}
+                ],
                 'max_tokens': 100
             }
         )
