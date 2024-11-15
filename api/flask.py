@@ -30,7 +30,7 @@ def get_club_suggestion():
                 'messages': [
                     {'role': 'user', 'content': f"Suggest a club for anyone interested in {user_input}."}
                 ],
-                'max_tokens': 100
+                'max_tokens': 200
             }
         )
 
