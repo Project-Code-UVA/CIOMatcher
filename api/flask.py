@@ -10,7 +10,7 @@ app = Flask(__name__)
 logging.basicConfig(level=logging.DEBUG)
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-ASSISTANT_ID ='asst_1E1eHUlfA7Cq6Gk5HSafBw2K'
+ASSISTANT_ID = 'asst_1E1eHUlfA7Cq6Rk5HSafBw2K'
 
 client = OpenAI(api_key=OPENAI_API_KEY)
 
