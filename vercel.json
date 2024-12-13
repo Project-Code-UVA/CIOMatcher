@@ -3,7 +3,10 @@
   "builds": [
     {
       "src": "api/flask.py",
-      "use": "@vercel/python"
+      "use": "@vercel/python",
+      "config": {
+        "maxDuration": 30
+      }
     },
     {
       "src": "static/main.html",
